@@ -1,0 +1,5 @@
+# Use an official MongoDB image as a parent image
+FROM mongo:4.4.8
+
+# Copy the initialization script to the container
+COPY init.js /docker-entrypoint-initdb.d/

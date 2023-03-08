@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.api
+    image: my-api
+    ports:
+      - '3001:3001'
+    volumes:
+      - ./backend:/app
+    environment:
+      - MONGODB_URI=mongodb://db:27017/my-database
+
+  db:
+    build:
+      context: ./db
+      dockerfile: Dockerfile.db
+    image: my-db
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./data:/data/db
+
+  mission5-react:
+    build:
+      context: ./mission5-react
+      dockerfile: Dockerfile.react
+    image: my-react
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./mission5-react:/app
+    environment:
+      - REACT_APP_API_URL=http://api:3001
