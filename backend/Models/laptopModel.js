@@ -17,6 +17,9 @@ const laptopSchema = new mongoose.Schema(
     bestvalue: Boolean,
     staffpick: Boolean,
     newarrivals: Boolean,
+    laptopType: Boolean,
+    laptopnamed: String,
+    description: String,
   },
   { collection: 'laptop' }
 );

@@ -1,6 +1,6 @@
 db.createUser({
   user: 'kyra',
-  pwd: 'Chy0902',
+  pwd: '123456',
   roles: [{ role: 'readWrite', db: 'mission5' }],
 });
 
